@@ -82,7 +82,7 @@ class SpectralBlockify(object):
 
     def _symmetric_normalize(self, A,maxiter=500):
         A = (A+A.T)/2.0
-        for i in xrange(maxiter):
+        for i in range(maxiter):
             prev = A.copy()
             d = A.sum(0)
             d[d==0] = 1.0
@@ -92,7 +92,7 @@ class SpectralBlockify(object):
             A /= d
             if np.allclose(prev,A,atol=1e-10,rtol=1e-12):
                 return A
-        print 'warning: reached max iter'
+        print ('warning: reached max iter')
         return A
 
 
